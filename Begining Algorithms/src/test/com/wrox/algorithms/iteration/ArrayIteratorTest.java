@@ -2,33 +2,63 @@ package test.com.wrox.algorithms.iteration;
 
 import main.com.wrox.algorithms.iteration.ArrayIterator;
 import main.com.wrox.algorithms.iteration.exceptions.IteratiorOutOfBoundsException;
-import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 public class ArrayIteratorTest {
+  @Test
+  public void testIterationRespectsBounds() {
+    Object[] array = new Object[] {"A", "B", "C", "D", "E", "F"};
+
+    ArrayIterator iterator = new ArrayIterator(array, 1, 3);
+
+    iterator.first();
+    assertFalse(iterator.isDone());
+    assertSame(array[1], iterator.current());
+
+    iterator.next();
+    assertFalse(iterator.isDone());
+    assertSame(array[2], iterator.current());
+
+    iterator.next();
+    assertFalse(iterator.isDone());
+    assertSame(array[3], iterator.current());
+
+    iterator.next();
+    assertTrue(iterator.isDone());
+
+    try {
+      iterator.current();
+      fail();
+    } catch (IteratiorOutOfBoundsException e) {
+      //expected
+    }
+  }
   @Test
   public void testBackwardsIteration() {
     Object[] array = new Object[]{"A", "B", "C"};
     ArrayIterator iterator = new ArrayIterator(array);
 
     iterator.last();
-    Assert.assertFalse(iterator.isDone());
-    Assert.assertSame(array[2], iterator.current());
+    assertFalse(iterator.isDone());
+    assertSame(array[2], iterator.current());
 
     iterator.previous();
-    Assert.assertFalse(iterator.isDone());
-    Assert.assertSame(array[1], iterator.current());
+    assertFalse(iterator.isDone());
+    assertSame(array[1], iterator.current());
 
     iterator.previous();
-    Assert.assertFalse(iterator.isDone());
-    Assert.assertSame(array[0], iterator.current());
+    assertFalse(iterator.isDone());
+    assertSame(array[0], iterator.current());
 
     iterator.previous();
-    Assert.assertTrue(iterator.isDone());
+    assertTrue(iterator.isDone());
     try {
       iterator.current();
-      Assert.fail();
+      fail();
     } catch (IteratiorOutOfBoundsException e) {
+      //expected
     }
   }
 }
