@@ -1,6 +1,6 @@
 package test.com.wrox.algorithms.iteration;
 
-import main.com.wrox.algorithms.iteration.ArrayIterator;
+import main.com.wrox.algorithms.iteration.classes.ArrayIterator;
 import main.com.wrox.algorithms.iteration.exceptions.IteratiorOutOfBoundsException;
 import org.junit.Test;
 

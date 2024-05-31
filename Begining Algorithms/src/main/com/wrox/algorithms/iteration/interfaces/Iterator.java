@@ -1,4 +1,4 @@
-package main.com.wrox.algorithms.iteration;
+package main.com.wrox.algorithms.iteration.interfaces;
 
 import main.com.wrox.algorithms.iteration.exceptions.IteratiorOutOfBoundsException;
 

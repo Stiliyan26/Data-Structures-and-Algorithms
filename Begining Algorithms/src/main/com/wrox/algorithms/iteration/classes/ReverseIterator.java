@@ -1,6 +1,7 @@
-package main.com.wrox.algorithms.iteration;
+package main.com.wrox.algorithms.iteration.classes;
 
 import main.com.wrox.algorithms.iteration.exceptions.IteratiorOutOfBoundsException;
+import main.com.wrox.algorithms.iteration.interfaces.Iterator;
 
 public class ReverseIterator implements Iterator {
     private final Iterator _iterator;
